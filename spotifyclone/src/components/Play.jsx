@@ -31,22 +31,21 @@ function Play() {
 
                 <div className="controller flex flex-col">
                     <div className="songbuttons flex justify-around w-96 pl-4 ">
-                        <IoShuffle  size={28}/>
-                        <MdSkipPrevious size={30}/>
-                        <FaPlay size={30}/>
-                        <MdSkipNext size={30}/>
-                        <RxLoop size={28}/>
+                        <IoShuffle  size={28} className='smallestDevices:max-smallDevices:invisible'/>
+                        <MdSkipPrevious size={30} className='smallestDevices:max-smallDevices:invisible'/>
+                        <FaPlay size={30}  />
+                        <MdSkipNext size={30} className='smallestDevices:max-smallDevices:invisible'/>
+                        <RxLoop size={28} className='smallestDevices:max-smallDevices:invisible'/>
                     </div>
-                    <div className='songprogress flex w-full'>
+                    <div className='songprogress flex w-full smallestDevices:max-smallDevices:invisible'>
                     <span className='mr-2'>0:00</span>
                     <div className=" border-2 border-b-4 border-x-0 border-t-0 h-4  border-[#525252] w-80 mr-2"></div>
                     <span >5:20</span>
                     </div>
                 </div>
-                <div className='sounds flex mt-3'>
+                <div className='sounds flex mt-3 smallestDevices:max-smallDevices:invisible'>
                     <AiFillSound size={40} className='mr-2'/>
                 <input type="range" className='h-3 mt-3' name="" id="" />
-
                 </div>
 
             </div>
