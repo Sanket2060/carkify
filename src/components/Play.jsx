@@ -9,7 +9,7 @@ import { AiFillSound } from "react-icons/ai";
 function Play() {
     return (
         <>
-            <div className="play-section h-28 bg-black p-10 text-white flex justify-between">
+            <div className="play-section h-28 w-full bg-black p-10 text-white flex justify-between fixed bottom-0 z-10">
                 <div className="songdetails font-Roboto flex ">
                     <div className="songimage w-12 h-12 rounded-md mr-4"
                         style={{
