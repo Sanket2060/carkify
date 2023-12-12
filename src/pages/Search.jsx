@@ -1,9 +1,5 @@
 import React from 'react'
-import LeftNavBar from '../components/LeftNavBar'
 import MainNavBar from '../components/MainNavBar'
-import { FaRegHeart } from "react-icons/fa";
-import { FaPlay } from "react-icons/fa";
-import Song from '../components/Song';
 import SingleSong from '../components/SingleSong';
 
 
