@@ -13,7 +13,8 @@ function Play() {
                 <div className="songdetails font-Roboto flex ">
                     <div className="songimage w-12 h-12 rounded-md mr-4"
                         style={{
-                            backgroundImage: 'url("https://c.saavncdn.com/281/Radha-Krishna-Naamawali-Chant-Single-Hindi-2019-20191224043319-500x500.jpg")',
+                            backgroundImage: 'url("https://i.ytimg.com/vi/Ng12hf3uVp4/maxresdefault.jpg")',
+                            backgroundSize:'contain'
                         }
                         }>
                     </div>
