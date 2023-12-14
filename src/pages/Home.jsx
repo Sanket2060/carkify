@@ -7,7 +7,7 @@ import Song from '../components/Song';
 function Home() {
   return (
     <>
-      <div className="home w-[2340px] h-fit p-6 mt-4 bg-[#171717] font-Roboto text-white  relative ml-[23rem]">
+      <div className="home w-[2340px] h-fit p-6 pb-28 mt-4 bg-[#171717] font-Roboto text-white  relative ml-[23rem]">
         <MainNavBar />
         <div className="welcometext text-3xl mt-7">Welcome back</div>
         <div className="likedsongs w-72 h-16 bg-black mt-7 rounded-xl flex border border-black ">

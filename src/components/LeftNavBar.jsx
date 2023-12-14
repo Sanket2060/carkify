@@ -24,7 +24,7 @@ function LeftNavBar() {
         </div>
         <div className="libraries flex justify-between bg-[#171717] h-[85%] p-4">
           <p> <MdQueueMusic size={28} className='inline' /> Your Library</p>
-          <FaPlus />
+        <Link to='/addsongs'><FaPlus /></Link>
 
 
         </div>
