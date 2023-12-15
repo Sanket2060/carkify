@@ -6,13 +6,17 @@ import 'react-toastify/dist/ReactToastify.css';
 function AddSongs() {
     const { register, handleSubmit } = useForm();
     const submitSong = (data) => {
-        console.log("It happened");
+        console.log("From submitSong");
     }
     const { formState: { errors } } = useForm();
     useEffect(()=>{
-        toast.error(`${errors}`, {
+        if (errors[0]){
+            console.log("Error is:",errors[0]);
+             errors? toast.error(`${errors[0]}`, {
             position: toast.POSITION.TOP_CENTER,
-          });
+          }):null;
+        }
+   
     },[errors])
     
     return (
@@ -25,28 +29,35 @@ function AddSongs() {
             <form onSubmit={handleSubmit(submitSong)} className='flex flex-col'>
 
                 <Input placeholder="Song Name" type="text" {...register("songName", {
-                    maxLength: 12,
-                    required:true,
-                    message: 'Song name should be shorter'
-                })} />
+                    required: "Song name is required.",
+                    maxLength: {
+                        value: 10,
+                        message: "Song name exceed maxLength.",
+                      }
+                        })} />
                 <Input placeholder="Song Author" type="text" {...register("songAuthor", {
-                    maxLength: 12,
-                    required:true,
-                    message: 'Author name should be shorter'
+                    required: "Song Author is required.",
+                    maxLength: {
+                        value: 10,
+                        message: "Song Author exceed maxLength.",
+                      }
+                       
                 })} />
                 <div className="selectfile">
                     <p className='text-start mb-4'>Select a song file</p>
                     <Input type="file" className="pt-5" {...register("songFile",{
-                        
-                        required:true,
-                        message:'Song file is required'
+                       required: "Song file is required.",
+                       
+                           
+                      
                     })} />
                 </div>
                 <div className="selectimage">
                     <p className='mb-4'> Select an image</p>
                     <Input type="file" className="pt-5" {...register("songImageFile",{
-                        required:true,
-                        message:'Song image file is required'
+                        required: "Song image is required.",
+                       
+                           
                     })} />
                 </div>
                 <button type='submit'  className='bg-[#21be5b] w-80 h-12 rounded-full px-6 mt-8'>Submit</button>
