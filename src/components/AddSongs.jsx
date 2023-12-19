@@ -4,20 +4,21 @@ import { useForm } from "react-hook-form";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 function AddSongs() {
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit,formState: { errors } } = useForm();
+
+
     const submitSong = (data) => {
-        console.log("From submitSong");
+        console.log("From submitSong",data);
     }
-    const { formState: { errors } } = useForm();
-    useEffect(()=>{
-        if (errors[0]){
-            console.log("Error is:",errors[0]);
-             errors? toast.error(`${errors[0]}`, {
-            position: toast.POSITION.TOP_CENTER,
-          }):null;
-        }
+    // useEffect(()=>{
+    //     if (errors[0]){
+    //         console.log("Error is:",errors[0]);
+    //          errors? toast.error(`${errors[0]}`, {
+    //         position: toast.POSITION.TOP_CENTER,
+    //       }):null;
+    //     }
    
-    },[errors])
+    // },[errors])
     
     return (
 

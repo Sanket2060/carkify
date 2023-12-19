@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 function LeftNavBar() {
   return (
 
-      <div className="navbar w-[360px] h-[100%] p-4 bg-black text-white fixed left-0 top-0  z-10  ">
+      <div className="navbar w-[360px] h-[100%] p-4 bg-black text-white fixed left-0 top-0  z-10  hidden sm:block">
         <div className="buttons bg-[#171717] mb-3 p-3">
         <Link to='/'>
             <div className="home flex h-10">

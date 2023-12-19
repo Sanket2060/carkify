@@ -16,7 +16,7 @@ function App() {
     <>
     <div className="fullpage h-fit w-screen flex bg-black ">
       {/* <AddSongs/> */}
-      /* <LeftNavBar/>
+       <LeftNavBar/>
       <Outlet/>
       <Play/>
     </div>

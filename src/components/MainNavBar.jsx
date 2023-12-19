@@ -60,10 +60,10 @@ function MainNavBar() {
     return (
         <div className="mainnavbar  bg-[#171717] flex justify-between">
             <div className="leftbuttons flex">
-                <Buttons shape={<IoMdHome size={24} />} className="mr-3" />
-                <Buttons shape={<FaSearch size={24} />} />
-                <Buttons shape={<IoChevronBack size={24} />} className="mr-3 invisible md:visible" />
-                <Buttons shape={<IoChevronForward size={24} />} className="invisible md:visible" />
+                <Buttons shape={<IoMdHome size={24} />} className="mr-3  sm:hidden" />
+                <Buttons shape={<FaSearch size={24} />}  className="sm:hidden"/>
+                <Buttons shape={<IoChevronBack size={24} />} className="mr-3 hidden sm:block" />
+                <Buttons shape={<IoChevronForward size={24} />} className="hidden sm:block" />
 
 
             </div>
