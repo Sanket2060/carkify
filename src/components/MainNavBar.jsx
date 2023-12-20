@@ -26,8 +26,10 @@ function MainNavBar() {
         
         try {
           await auth.loginWithGoogle();
+          e.preventDefault();
           const currentUser = await auth.getCurrentUser();
           if (currentUser){
+              console.log("Current User data:",currentUser);
               setUserData(currentUser);
               toast.success("Logged in Successfully", {
                   position: toast.POSITION.TOP_CENTER,

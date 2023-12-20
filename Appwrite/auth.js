@@ -17,8 +17,9 @@ class Auth {
   // }
   loginWithGoogle = () => {
     return new Promise((resolve, reject) => {
-          this.account.createOAuth2Session('google',this.successURL , this.failureURL)
-              .then(() => {
+      this.account.createOAuth2Session('google',this.successURL , this.failureURL)
+      .then(() => {
+        // window.history.pushState({}, null, '/');
           resolve(); // Resolve the promise when the OAuth2 session is created
         })
         .catch((error) => {
@@ -30,7 +31,7 @@ class Auth {
   getCurrentUser=async()=>{
     try {
       console.log("At getCurrentUser");
-      const session = await account.getSession('current');
+      const session = await this.account.getSession('current');
       console.log("CurrentUser data:",session);
       return session;
     } catch (error) {
