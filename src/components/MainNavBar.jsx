@@ -27,14 +27,14 @@ function MainNavBar() {
         try {
           await auth.loginWithGoogle();
           e.preventDefault();
-          const currentUser = await auth.getCurrentUser();
-          if (currentUser){
-              console.log("Current User data:",currentUser);
-              setUserData(currentUser);
-              toast.success("Logged in Successfully", {
-                  position: toast.POSITION.TOP_CENTER,
-                });
-          }
+          // const currentUser = await auth.getCurrentUser();
+          // if (currentUser){
+          //     console.log("Current User data:",currentUser);
+          //     setUserData(currentUser);
+          //     toast.success("Logged in Successfully", {
+          //         position: toast.POSITION.TOP_CENTER,
+          //       });
+          // }
         } catch (error) {
           console.log(error);
           toast.error(`${error}`, {
@@ -58,7 +58,16 @@ function MainNavBar() {
     //         }
     //         console.log(userData);    
     // },[userData])
-
+      useEffect(()=>{
+        const currentUser =  auth.getCurrentUser();
+          if (currentUser){
+              console.log("Current User data:",currentUser);
+              setUserData(currentUser);
+              toast.success("Logged in Successfully", {
+                  position: toast.POSITION.TOP_CENTER,
+                });
+          }
+      },[])
     return (
         <div className="mainnavbar  bg-[#171717] flex justify-between">
             <div className="leftbuttons flex">

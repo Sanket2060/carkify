@@ -2,7 +2,7 @@ import { Client, Databases, Account, ID,Query} from 'appwrite';
 import conf from '../conf/conf';
 class Auth {
    successURL = 'http://localhost:5173/';
-  failureURL = 'http://localhost:5173/';
+  failureURL = 'http://localhost:5173/search';
   client = new Client();
   account = new Account(this.client);
 //   databases = new Databases(this.client);

@@ -62,7 +62,7 @@ function Play() {
         
         setCurrentSong(songs[currentSongNumber]);
         setCurrentSongNumber(currentSongNumber+1);
-        if (currentSongNumber>=songs.length){               //0 1 2 3   3 3 3 3
+        if (currentSongNumber==songs.length-1){               //0 1 2 3   3 3 3 3
             setCurrentSongNumber(0);   
         }
         // PlayPause();
@@ -73,8 +73,20 @@ function Play() {
         
         setCurrentSong(songs[currentSongNumber]);
         setCurrentSongNumber(currentSongNumber-1);
+        if (currentSongNumber==0){               //0 1 2 3   3 3 3 3
+            setCurrentSongNumber(songs.length-1);   
+        }
 
-
+    }
+    
+    const HandleSoundChange=()=>{
+        const value=soundRange.current.value;
+        audioTag.current.volume=parseInt((value/100)*10); //must be *1
+        console.log("value:",(value/100)*1); 
+    }
+    const ShuffleSongs=()=>{
+        setCurrentSongNumber(Math.round(Math.random()*(songs.length-1)));
+        setCurrentSong(songs[currentSongNumber]);
     }
     useEffect(() => {
         if (isPlaying){
@@ -86,13 +98,6 @@ function Play() {
         console.log("Currentsongnumber:",currentSongNumber);
     },[currentSongNumber])
 
-    
-    const HandleSoundChange=()=>{
-        const value=soundRange.current.value;
-        audioTag.current.volume=parseInt((value/100)*10); //must be *1
-        console.log("value:",(value/100)*1); 
-
-    }
     return (
 
 
@@ -121,7 +126,7 @@ function Play() {
 
                 <div className="controller flex flex-col ">
                     <div className="songbuttons flex justify-around w-96 pl-4 ">
-                        <IoShuffle size={28} className='smallestDevices:max-smallDevices:invisible hover:cursor-pointer hidden sm:block' />
+                        <IoShuffle size={28} className='smallestDevices:max-smallDevices:invisible hover:cursor-pointer hidden sm:block' onClick={ShuffleSongs} />
                         <MdSkipPrevious size={30} className='smallestDevices:max-smallDevices:invisible hover:cursor-pointer hidden sm:block' onClick={PreviousSong} />
                        {!isPlaying?
                         <FaPlay size={30} className='hover:cursor-pointer' onClick={PlayPause} />
