@@ -20,7 +20,7 @@ class Auth {
       this.account.createOAuth2Session('google',this.successURL , this.failureURL)
       .then(() => {
         // window.history.pushState({}, null, '/');
-          resolve(); // Resolve the promise when the OAuth2 session is created
+          resolve(Math.random()); // Resolve the promise when the OAuth2 session is created
         })
         .catch((error) => {
           reject(error); // Reject the promise if there is an error
@@ -32,7 +32,7 @@ class Auth {
     try {
       console.log("At getCurrentUser");
       const session = await this.account.getSession('current');
-      console.log("CurrentUser data:",session);
+      console.log("GetCurrentUser data:",session.provider);
       return session;
     } catch (error) {
       console.log("GetCurrentUser Error:",error);

@@ -20,26 +20,17 @@ function MainNavBar() {
     //     }
 
     // }
-
     const googleAuth = async (e) => {
         e.preventDefault();
         
         try {
           await auth.loginWithGoogle();
           e.preventDefault();
-          // const currentUser = await auth.getCurrentUser();
-          // if (currentUser){
-          //     console.log("Current User data:",currentUser);
-          //     setUserData(currentUser);
-          //     toast.success("Logged in Successfully", {
-          //         position: toast.POSITION.TOP_CENTER,
-          //       });
-          // }
         } catch (error) {
           console.log(error);
-          toast.error(`${error}`, {
-            position: toast.POSITION.TOP_CENTER,
-          });
+          // toast.error(`${error}`, {
+          //   position: toast.POSITION.TOP_CENTER,
+          // });
         }
       };
       
@@ -58,16 +49,26 @@ function MainNavBar() {
     //         }
     //         console.log(userData);    
     // },[userData])
-      useEffect(()=>{
-        const currentUser =  auth.getCurrentUser();
-          if (currentUser){
-              console.log("Current User data:",currentUser);
-              setUserData(currentUser);
-              toast.success("Logged in Successfully", {
-                  position: toast.POSITION.TOP_CENTER,
-                });
-          }
-      },[])
+
+    useEffect(()=>{
+      try {
+        auth.getCurrentUser()
+        .then((Response)=>{
+         const currentUser=Response;
+         if (currentUser){
+           console.log("Current User data:",currentUser);
+           setUserData(currentUser);
+           // toast.success("Logged in Successfully", {
+           //   position: toast.POSITION.TOP_CENTER,
+           // });
+         }
+       } ) 
+      } catch (error) {
+        console.log("GetCurrentUser error:",error);
+      }
+       
+},[]);
+
     return (
         <div className="mainnavbar  bg-[#171717] flex justify-between">
             <div className="leftbuttons flex">
