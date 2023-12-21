@@ -31,8 +31,8 @@ class Auth {
   getCurrentUser=async()=>{
     try {
       console.log("At getCurrentUser");
-      const session = await this.account.getSession('current');
-      console.log("GetCurrentUser data:",session.provider);
+      const session = await this.account.get();   //guy from youtube says .get,documentation says account.getSession('current')
+      console.log("GetCurrentUser data:",session);
       return session;
     } catch (error) {
       console.log("GetCurrentUser Error:",error);
