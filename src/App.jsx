@@ -8,6 +8,7 @@ import Home from './pages/Home'
 import Search from './pages/Search'
 import { ToastContainer } from 'react-toastify'
 import AddSongs from './components/AddSongs'
+import SongDescription from './pages/SongDescription'
 
 
 function App() {
@@ -15,9 +16,9 @@ function App() {
   return (
     <>
     <div className="fullpage h-fit w-screen flex bg-black ">
-      {/* <AddSongs/> */}
-       <LeftNavBar/>
       <Outlet/>
+       <LeftNavBar/>
+      {/* <SongDescription/> */}
       <Play/>
     </div>
     <ToastContainer/> 
